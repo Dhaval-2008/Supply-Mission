@@ -63,7 +63,6 @@ function setup() {
 
 
 	Engine.run(engine);
-  
 }
 
 
@@ -72,7 +71,8 @@ function draw() {
   background(0);
  
   packageSprite.x= packageBody.position.x 
-  packageSprite.y= packageBody.position.y 
+  packageSprite.y= packageBody.position.y
+    
 
   
   drawSprites();
@@ -80,3 +80,43 @@ function draw() {
   
  
 }
+
+function keyPressed(){
+	if (keyCode === LEFT_ARROW){
+		
+		helicopterSprite.x = helicopterSprite.x-20;
+		translation={x:-20,y:0}
+		Matter.Body.translate(packageBody, {x:-20, y:0})
+	}else if (keyCode === RIGHT_ARROW){
+		
+		helicopterSprite.x = helicopterSprite.x+20;
+		translation={x:20,y:0}
+		Matter.Body.translate(packageBody, {x:-20, y:0})
+	}
+	else if (keyCode === DOWN_ARROW){
+		Matter.Body.setStatic(packageBody,false)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
